@@ -1,5 +1,5 @@
-let letter = [];
-let currentIndex = 1;
+let letter = []; //모든 편지 내용
+let currentIndex = 1; // 현재 편지 숫자 변수 
 
 
 // 편지는 최대 3개
@@ -11,7 +11,6 @@ for (let i = 1; i <= document.getElementById('letter-wrap-content').childElement
     // 아래 숫자 버튼 클릭 시, 해당 편지 이동 및 css효과
     li.addEventListener('click', function () {
         let currentNum = parseInt(event.srcElement.id);
-        let next = document.getElementById(currentNum);
         document.getElementById('letter-wrap-content').innerHTML = letter[currentNum - 1];
         let prev = document.getElementById(String(currentIndex));
         prev.style.backgroundColor = '#E8E8E8';
@@ -26,8 +25,10 @@ for (let i = 1; i <= document.getElementById('letter-wrap-content').childElement
 
 }
 
+//checked 로 변경하여 css 효과 적용
 document.getElementById(currentIndex).className = "letter-number checked";
 replaceArrow();
+//해당 편지내용 가져오기
 document.getElementById("letter" + String(currentIndex)).innerHTML = letter[currentIndex - 1];
 
 
@@ -43,6 +44,7 @@ function nextBtn() {
     }
 }
 
+// 클릭된 숫자,이전 숫자 style 변경
 function replaceNum(direction) {
     let prev = document.getElementById(String(currentIndex));
     prev.style.backgroundColor = '#E8E8E8';
@@ -60,7 +62,7 @@ function replaceNum(direction) {
     replaceArrow();
 }
 
-
+//화살표 교체(해당 숫자에 따라서) 
 function replaceArrow() {
     if (letter.length > 1) {
         if (letter.length == 2) {
@@ -80,7 +82,7 @@ function replaceArrow() {
     }
 }
 
-
+// 화살표 교체
 function replacePrev() {
     document.getElementById('prev').src = "/images/icons/chevron-back-outline.svg";
     document.getElementById('next').src = "/images/icons/chevron-forward-outline-blue.svg";
