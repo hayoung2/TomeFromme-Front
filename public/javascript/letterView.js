@@ -2,10 +2,13 @@ let letter = [];
 let currentIndex = 1;
 
 
+// 편지는 최대 3개
 for (let i = 1; i <= document.getElementById('letter-wrap-content').childElementCount; i++) {
     letter[i - 1] = document.getElementById('letter' + String(i)).innerHTML;
     document.getElementById('letter' + String(i)).innerHTML = "";
     var li = document.getElementById(String(i));
+
+    // 아래 숫자 버튼 클릭 시, 해당 편지 이동 및 css효과
     li.addEventListener('click', function () {
         let currentNum = parseInt(event.srcElement.id);
         let next = document.getElementById(currentNum);
@@ -17,6 +20,7 @@ for (let i = 1; i <= document.getElementById('letter-wrap-content').childElement
         change.style.backgroundColor = '#4353a1';
         change.style.color = '#ffffff';
         currentIndex = currentNum;
+        //페이지 이동에 따라서 화살표 변경
         replaceArrow();
     });
 
@@ -56,6 +60,7 @@ function replaceNum(direction) {
     replaceArrow();
 }
 
+
 function replaceArrow() {
     if (letter.length > 1) {
         if (letter.length == 2) {
@@ -74,10 +79,13 @@ function replaceArrow() {
         document.getElementById(String(currentIndex)).style.marginLeft = "30px";
     }
 }
+
+
 function replacePrev() {
     document.getElementById('prev').src = "/images/icons/chevron-back-outline.svg";
     document.getElementById('next').src = "/images/icons/chevron-forward-outline-blue.svg";
 }
+
 
 function replaceNext() {
     document.getElementById('prev').src = "/images/icons/chevron-back-outline-blue.svg";

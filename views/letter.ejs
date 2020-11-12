@@ -4,14 +4,9 @@
 <head>
   <title>ToMeFromMe</title>
   <%- include('../components/styles.ejs') %>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/letter.css"
-  media="screen and (min-width:769px)"/>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/letter.css" media="screen and (min-width:769px)" />
   <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet" />
-  <link
-          rel="stylesheet"
-          href="/stylesheets/letter-mobile.css"
-          media="screen and (max-width:768px)"
-  />
+  <link rel="stylesheet" href="/stylesheets/letter-mobile.css" media="screen and (max-width:768px)" />
 </head>
 
 <body>
@@ -19,6 +14,7 @@
   <div class="letter-wrap" id="letter-wrap">
     <span id="to">to me,</span>
     <div class="letter-up">
+      <!-- 화살표 및 편지 입력 -->
       <div class="letter-back button" id="btn1" onclick="prevBtn()">
         <img id="prev" src="/images/icons/chevron-back-outline.svg">
       </div>
@@ -38,6 +34,8 @@
         <%= content.date.substring(0,10).replace('-','.').replace('-','.');%>
       </span>
       <span id="from">from me.</span>
+
+      <!--편지 개수에 따라서 숫자 리스트 생성-->
       <ul id="letter-number-list" class="letter-number-list">
         <%number=1;%>
         <%content.letters.forEach(function(ltr){%>
@@ -46,7 +44,7 @@
         <%})%>
       </ul>
     </div>
-    </div>
+  </div>
   </div>
   <img src="/images/mailview-envelope.png" id="envelope">
   <img src="/images/mailview-envelope-mobile.png" id="envelope-mobile">
